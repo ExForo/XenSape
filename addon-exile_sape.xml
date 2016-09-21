@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="exile_sape" title="[Exile] Sape" version_string="1.0.1" version_id="101" url="https://xenforo.info/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners/>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="exile_sape" display_order="6000" debug_only="0"/>
+    <option option_id="exile_sape_id" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="exile_sape" display_order="1"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="option_exile_sape_id" version_id="100" version_string="1.0.0"><![CDATA[Sape ID]]></phrase>
+    <phrase title="option_exile_sape_id_explain" version_id="100" version_string="1.0.0"><![CDATA[Введите название папки (id), которая была скачана вами в корень сайта с сайта Sape при настройке вашего сайта в системе. Обратите внимание, что без указания названия папки дополнение работать не будет.]]></phrase>
+    <phrase title="option_group_exile_sape" version_id="100" version_string="1.0.0"><![CDATA[[Exile] Sape]]></phrase>
+    <phrase title="option_group_exile_sape_description" version_id="100" version_string="1.0.0"><![CDATA[Настройка интеграции с Sape.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="footer" modification_key="exile_sape" description="Добавляем вывод кода Sape" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<xen:hook name="footer_after_copyright" />]]></find>
+      <replace><![CDATA[$0
+<xen:callback class="Exile_Sape_Sape" method="showCode"></xen:callback>]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
